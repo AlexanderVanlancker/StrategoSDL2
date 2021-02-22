@@ -23,7 +23,7 @@ void Game::Init(const char* title, int width, int height, int bpp){
 	running = true;
 	printf("Game Initialised Succesfully\n");
 
-    font = TTF_OpenFont("OpenSans.ttf", 24); //this opens a font style and sets a size
+    font = TTF_OpenFont("../assets/OpenSans.ttf", 24); //this opens a font style and sets a size
     if (font == NULL) {
         fprintf(stderr, "error: font not found\n");
         exit(EXIT_FAILURE);
@@ -32,8 +32,8 @@ void Game::Init(const char* title, int width, int height, int bpp){
     selected.first = -1;
     selected.second = -1;
 
-    testSprite = Sprite::Load(renderer, "10.png");
-    background = Sprite::Load(renderer, "bg.jpg");
+    testSprite = Sprite::Load(renderer, "../assets/10.png");
+    background = Sprite::Load(renderer, "../assets/bg.jpg");
 
     gameGrid[8][0] = 7;
     gameGrid[8][1] = 10;
@@ -120,14 +120,14 @@ void Game::Draw(){
 
     SDL_Rect Message_rect; //create a rect
     
-    Message_rect.w = 50; // controls the width of the rect
+    Message_rect.w = 50; // controls the width of the rectg
     Message_rect.h = 50; // controls the height of the rect
 
 
     for(int y=0;y<10;y++){
         for(int x=0;x<10;x++){
             if(gameGrid[y][x] > 0 && gameGrid[y][x] <=10){
-                SDL_Texture* tempSprite = Sprite::Load(renderer, "10.png");
+                SDL_Texture* tempSprite = Sprite::Load(renderer, "../assets/10.png");
                 Message_rect.x = 50 + x*50;  //controls the rect's x coordinate 
                 Message_rect.y = 50 + y*50; // controls the rect's y coordinte
                 Sprite::Draw(renderer, tempSprite, Message_rect.x, Message_rect.y, Message_rect.w, Message_rect.h);
