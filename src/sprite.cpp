@@ -1,6 +1,12 @@
-#include "sprite.h"
+#include "Sprite.h"
 Sprite::Sprite(){
 
+}
+
+SDL_Texture* Sprite::Load(char* File){
+    SDL_Texture* temp;
+    //add
+    return temp;
 }
 
 SDL_Texture* Sprite::Load(SDL_Renderer *renderer, char* File)

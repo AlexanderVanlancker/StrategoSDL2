@@ -1,8 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <utility>
-#include "util.h"
-#include "sprite.h"
+#include "Util.h"
+#include "Sprite.h"
 
 #ifndef GAME_H
 #define GAME_H
