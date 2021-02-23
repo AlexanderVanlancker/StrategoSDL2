@@ -1,7 +1,8 @@
 #include "Game.h"
+#include "Singleton.h"
 #include <string>
 
-Game::Game(){
+Game::~Game(){
 
 }
 
@@ -47,21 +48,21 @@ void Game::Init(const char* title, int width, int height, int bpp){
     gameGrid[8][9] = 10;
 }
 
-void Game::HandleEvents(Game* game){
+void Game::HandleEvents(){
     SDL_Event event;
 
     if(SDL_PollEvent(&event)){
         switch (event.type)
         {
         case SDL_QUIT:
-            game->Quit();
+            GameInst::Instance()->Quit();
             break;
         
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym)
             {
             case SDLK_ESCAPE:
-                game->Quit();
+                GameInst::Instance()->Quit();
                 break;
             
             default:

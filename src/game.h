@@ -3,27 +3,31 @@
 #include <utility>
 #include "Util.h"
 #include "Sprite.h"
+#include "Singleton.h"
 
 #ifndef GAME_H
 #define GAME_H
 
 class Game{
     public:
-        Game();
-
+        ~Game();
         void Init(const char* title, int width, int height, int bpp);
         void Quit();
-        void HandleEvents(Game*);
+        void HandleEvents();
         void Update();
         void Draw();
         void MouseHover();
         void Clean();
         bool Running();
+        SDL_Surface* GetScreen() { return screen; }
 
         void testClass();
         void DrawBackground();
 
     private:
+        Game(){};
+        friend class Singleton<Game>;
+
         bool running;
         SDL_Texture* testSprite;
         SDL_Texture* background;
@@ -38,6 +42,6 @@ class Game{
         std::pair<int, int> selected;
 };
 
-
+typedef Singleton<Game> GameInst;
 
 #endif

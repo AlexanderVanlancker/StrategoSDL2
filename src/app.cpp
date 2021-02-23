@@ -4,18 +4,17 @@
 #include "Game.h"
 
 int main(){
-    Game game;
-    game.Init("Stratego", 600, 600, 32);
-    game.DrawBackground();
-    while(game.Running()){
-        game.DrawBackground();
-        game.HandleEvents(&game);
-        game.MouseHover();
-        game.Update();
-        game.Draw();
-        game.testClass();
+    GameInst::Instance()->Init("Stratego", 600, 600, 32);
+    GameInst::Instance()->DrawBackground();
+    while(GameInst::Instance()->Running()){
+        GameInst::Instance()->DrawBackground();
+        GameInst::Instance()->HandleEvents();
+        GameInst::Instance()->MouseHover();
+        GameInst::Instance()->Update();
+        GameInst::Instance()->Draw();
+        GameInst::Instance()->testClass();
     }
 
-    game.Clean();
+    GameInst::Instance()->Clean();
     return 0;
 }
